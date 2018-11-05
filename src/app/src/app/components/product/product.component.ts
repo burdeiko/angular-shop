@@ -13,6 +13,10 @@ export class ProductComponent implements OnInit {
   category: Category
   isAvailable: boolean
 
+  onBuy() {
+    console.log('Buy ' + this.name);
+  }
+
   constructor() { }
 
   ngOnInit() {
