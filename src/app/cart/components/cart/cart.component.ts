@@ -11,14 +11,15 @@ export class CartComponent implements OnInit {
 
   cart: Array<IProduct>
 
-  onCartUpdate() {
-    this.cart = this.cartService.getProductsInCart();
-  }
-
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
     this.cart = this.cartService.getProductsInCart();
+    this.cartService.CartUpdate.subscribe(this.onCartUpdate.bind(this));
   }
 
+  private onCartUpdate() {
+    this.cart = this.cartService.getProductsInCart();
+    console.log('test');
+  }
 }

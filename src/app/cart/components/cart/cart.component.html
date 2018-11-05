@@ -1,3 +1,10 @@
-<p>
-  cart works!
-</p>
+<div class="cart">
+  <ul *ngIf="cart.length; else emptyCartMessage">
+    <li *ngFor="let item of cart">
+      {{ item.name }}
+    </li>
+  </ul>
+  <ng-template #emptyCartMessage>
+    <p>The cart is empty</p>
+  </ng-template>
+</div>

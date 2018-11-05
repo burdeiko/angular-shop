@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { IProduct } from '../../products/models/product.model';
 
 @Injectable({
@@ -6,10 +6,13 @@ import { IProduct } from '../../products/models/product.model';
 })
 export class CartService {
 
-  cart: Array<IProduct> = []
+  CartUpdate: EventEmitter<any> = new EventEmitter<any>();
+
+  private cart: Array<IProduct> = []
 
   addProductToCart(product: IProduct) {
     this.cart.push(product);
+    this.CartUpdate.emit();
   }
 
   getProductsInCart(): Array<IProduct> {
