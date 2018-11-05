@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IProduct } from '../../models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -7,30 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  name: string
-  description: string
-  price: number
-  category: Category
-  isAvailable: boolean
+  @Input() product: IProduct;
 
   onBuy() {
-    console.log('Buy ' + this.name);
+    console.log('Buy ' + this.product.name);
   }
 
   constructor() { }
 
   ngOnInit() {
-    this.name = 'testName';
-    this.description = 'testDesc';
-    this.category = Category.Laptop;
-    this.price = 1500;
-    this.isAvailable = true;
   }
 
-}
-
-enum Category {
-  Laptop,
-  Tablet,
-  Phone
 }
