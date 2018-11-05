@@ -18,6 +18,10 @@ export class CartComponent implements OnInit {
     this.cartService.CartUpdate.subscribe(this.onCartUpdate.bind(this));
   }
 
+  onClear() {
+    this.cartService.clearCart();
+  }
+
   private onCartUpdate() {
     this.cart = this.cartService.getProductsInCart();
     console.log('test');

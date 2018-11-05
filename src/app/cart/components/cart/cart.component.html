@@ -1,4 +1,6 @@
 <div class="cart">
+  <h3>Cart</h3>
+  <button *ngIf="cart.length" (click)="onClear()">Clear</button>
   <ul *ngIf="cart.length; else emptyCartMessage">
     <li *ngFor="let item of cart">
       {{ item.name }}
